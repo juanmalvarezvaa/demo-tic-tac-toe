@@ -1,15 +1,4 @@
-const initialGameBoard = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null],
-];
-
-const GameBoard = ({ onSelectSquare, turns }) => {
-  let gameBoard = initialGameBoard;
-  turns.forEach((turn) => {
-    gameBoard[turn.square.row][turn.square.col] = turn.player;
-  });
-
+const GameBoard = ({ onSelectSquare, gameBoard }) => {
   return (
     <ol id="game-board">
       {gameBoard.map((row, rowIndex) => (
