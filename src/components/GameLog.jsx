@@ -1,0 +1,15 @@
+const GameLog = ({ turns }) => {
+  return (
+    <ol id="log">
+      {turns.map((turn) => {
+        return (
+          <li key={`${turn.square.row}${turn.square.col}`}>
+            {turn.player} played {turn.square.row + 1}:{turn.square.col + 1}
+          </li>
+        );
+      })}
+    </ol>
+  );
+};
+
+export default GameLog;
