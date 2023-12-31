@@ -22,7 +22,7 @@ const App = () => {
         },
         ...prevTurns,
       ];
-      console.log(updatedTurns);
+      
       return updatedTurns;
     });
   };
