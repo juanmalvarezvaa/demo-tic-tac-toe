@@ -1,5 +1,18 @@
+import Player from "./components/Player";
+
 const App = () => {
-  return <p>TODO</p>;
+  return (
+    <main>
+      <div id="game-container">
+        <ol id="players">
+          <Player name="Player 1" symbol="X" />
+          <Player name="Player 2" symbol="O" />
+        </ol>
+        GAMEBOARD
+      </div>
+      LOG OF PLAYS
+    </main>
+  );
 };
 
 export default App;
