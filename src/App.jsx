@@ -1,10 +1,5 @@
+const App = () => {
+  return <p>TODO</p>;
+};
 
-function App() {
-  
-
-  return (
-    <h1>React Tic-Tac-Toe</h1>
-  )
-}
-
-export default App
+export default App;
