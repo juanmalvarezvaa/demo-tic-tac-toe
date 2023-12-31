@@ -4,19 +4,22 @@ import Player from "./components/Player";
 import GameBoard from "./components/GameBoard";
 import GameLog from "./components/GameLog";
 
+const deriveActivePlayer = (gameTurns) => {
+  return gameTurns.length === 0 || gameTurns[0].player === "O" ? "X" : "O";
+};
+
 const App = () => {
-  const [activePlayer, setActivePlayer] = useState("X");
   const [gameTurns, setGameTurns] = useState([]);
 
-  const handleSelectSquare = (rowIndex, colIndex) => {
-    setActivePlayer((curActivePlayer) => (curActivePlayer == "X" ? "O" : "X"));
-    setGameTurns((prevTurns) => {
-      // Check last player logged value.. so we DONT use other state value here
-      let currentPlayer =
-        prevTurns.length === 0 || prevTurns[0].player === "O" ? "X" : "O";
+  let activePlayer = deriveActivePlayer(gameTurns);
 
+  const handleSelectSquare = (rowIndex, colIndex) => {
+    setGameTurns((prevTurns) => {
       const updatedTurns = [
-        { square: { row: rowIndex, col: colIndex }, player: currentPlayer },
+        {
+          square: { row: rowIndex, col: colIndex },
+          player: deriveActivePlayer(prevTurns),
+        },
         ...prevTurns,
       ];
       console.log(updatedTurns);
